@@ -1,0 +1,17 @@
+purestorage-fa:
+  image: purestorage/docker-plugin:1.0
+  privileged: true
+  ipc: host
+  net: host
+  tty: true
+  cap_add:
+    - SYS_ADMIN
+  volumes:
+    - /:/host:shared 
+    - /run:/run:shared 
+  labels:
+    io.rancher.scheduler.global: 'true'
+    io.rancher.container.dns: 'true'
+    io.rancher.container.hostname_override: container_name
+  command: /purestorage/container-launch.sh --config=http://169.254.169.250/latest/services/purestorage-fa/metadata
+
