@@ -1,15 +1,8 @@
 .catalog:
-  name: "nDVP"
+  name: "purestorafe"
   version: "1.0.0"
-  description: "NetApp Docker Volume Plugin (nDVP)"
+  description: "Pure Storage Docker Volume Plugin"
   questions:
-    - variable: "TENANT_NAME"
-      description: "SolidFire tenant to use (created if not found)"
-      label: "TenantName"
-      required: true
-      default: "docker"
-      type: "string"
-
     - variable: "DEBUG_ENABLED"
       description: "Enable debugging output in logs"
       label: "Debug Logging"
@@ -17,25 +10,17 @@
       default: false
       type: "boolean"
 
-    # SolidFire settings
+    # Pure Storage FlashArray settings
+    - variable: "API"
+      description: "Example: bcbdab78-d118-1c8d-9310-63d801f4069d"
+      label: "API Token for FlashArray"
+      required: true
+      type: "string"
+
     - variable: "ENDPOINT"
-      description: "Example: https://user:pass@192.168.100.1/json-rpc/7.0"
-      label: "Endpoint URL"
+      description: "Management Endpoint: IP address or FQDN"
+      label: "VIP"
       required: true
-      default: "https://USER:PASS@HOSTNAME/json-rpc/7.0"
-      type: "string"
-
-    - variable: "SVIP"
-      description: "iSCSI IP address and port; example 10.0.0.7:3260"
-      label: "SVIP"
-      required: true
-      type: "string"
-
-    - variable: "INITIATOR_IFACE"
-      description: "Specify interface when restricting iSCSI traffic to non-default interface"
-      label: "Initiator Interface"
-      required: true
-      default: "default"
       type: "string"
 
     - variable: "DEFAULT_VOL_SZ"
@@ -61,11 +46,8 @@ purestorage-fa:
     debug: true
     storagePrefix: "${STORAGE_PREFIX}"
     Endpoint: "${ENDPOINT}"
-    SVIP: "${SVIP}"
-    TenantName: "${TENANT_NAME}"
+    API: "${API}"
     DefaultVolSz: ${DEFAULT_VOL_SZ}
-    InitiatorIFace: "${INITIATOR_IFACE}"
-    Types: "${TYPES}"
     volumeDriverName: "${VOLUME_DRIVER_NAME}"
   storage_driver:
     name: "${VOLUME_DRIVER_NAME}"
