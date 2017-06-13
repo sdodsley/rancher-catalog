@@ -171,7 +171,6 @@ kubectld:
         {{- if eq .Values.CONSTRAINT_TYPE "required" }}
         io.rancher.scheduler.affinity:host_label: orchestration=true
         {{- end }}
-        io.rancher.k8s.kubectld: "true"
         io.rancher.container.create_agent: "true"
         io.rancher.container.agent_service.kubernetes_stack: "true"
     environment:
@@ -186,6 +185,7 @@ kubectl-shell:
         {{- if eq .Values.CONSTRAINT_TYPE "required" }}
         io.rancher.scheduler.affinity:host_label: orchestration=true
         {{- end }}
+        io.rancher.k8s.kubectld: "true"
         io.rancher.k8s.token: "true"
     command:
         - sleep
