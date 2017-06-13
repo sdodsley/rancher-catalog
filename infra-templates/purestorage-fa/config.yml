@@ -1,0 +1,7 @@
+name: Pure Storage FlashArray
+description: |
+  Volume plugin for Pure Storage FlashArray
+version: 1.0.0
+category: Storage
+labels:
+  io.rancher.orchestration.supported: 'cattle'
