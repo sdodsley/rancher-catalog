@@ -130,6 +130,8 @@ kubernetes:
         io.rancher.container.create_agent: "true"
         io.rancher.container.agent.role: environmentAdmin
         io.rancher.sidekicks: kube-hostname-updater
+        io.rancher.websocket.proxy.port: "6443"
+        io.rancher.websocket.proxy.scheme: "https"
     command:
         - kube-apiserver
         - --storage-backend=etcd2
