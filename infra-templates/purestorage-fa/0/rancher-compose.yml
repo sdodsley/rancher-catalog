@@ -1,5 +1,5 @@
 .catalog:
-  name: "purestorafe"
+  name: "purestorage"
   version: "1.0.0"
   description: "Pure Storage Docker Volume Plugin"
   questions:

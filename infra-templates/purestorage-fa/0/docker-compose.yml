@@ -1,5 +1,5 @@
 purestorage-fa:
-  image: purestorage/docker-plugin:2.0
+  image: store/purestorage/docker-plugin:2.0
   privileged: true
   ipc: host
   net: host
